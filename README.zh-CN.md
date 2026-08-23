@@ -1,5 +1,7 @@
 # osu!mania Inverse Converter
 
+中文 | [English](README.md)
+
 [![Language: C](https://img.shields.io/badge/Language-C99-blue.svg)]()
 
 一个将 osu!mania 中的谱面转换为反键（Inverse）的小工具。  

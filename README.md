@@ -1,5 +1,7 @@
 # osu!mania Inverse Converter
 
+[中文](README.zh-CN.md) | English
+
 [![Language: C](https://img.shields.io/badge/Language-C99-blue.svg)]()
 
 A small tool that converts osu!mania maps into **inverse**.  
@@ -134,4 +136,4 @@ A: If a file with the same name exists in the current directory (for example, `8
 
 ## 📄 License
 
-[MIT](LICENSE)
+[LICENSE](LICENSE)
