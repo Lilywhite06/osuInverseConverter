@@ -521,6 +521,7 @@ int main(int argc, char *argv[])
 
     if (file_start_index >= argc) {
         char input_path[1024];
+        input_path[0] = '\0';
 
         if (argc < 2) {
             printf("Enter gap divisor (positive integer, e.g. 4 = 1/4 beat, 8 = 1/8 beat): ");
@@ -542,6 +543,26 @@ int main(int argc, char *argv[])
 #endif
 
         process_file(input_path, gap_divisor);
+
+        char output_path[1024];
+        strncpy(output_path, input_path, sizeof(output_path) - 1);
+        output_path[sizeof(output_path) - 1] = '\0';
+
+        char* dot = strrchr(output_path, '.');
+        if (dot) {
+            *dot = '\0';
+        }
+        snprintf(output_path + strlen(output_path), sizeof(output_path) - strlen(output_path),
+            " (inverse 1-%d).osu", gap_divisor);
+
+#ifdef _WIN32
+        char msg[2048];
+        snprintf(msg, sizeof(msg), "Conversion complete.\n\nOutput file:\n%s", output_path);
+        MessageBoxA(NULL, msg, "Done", MB_OK | MB_ICONINFORMATION);
+#else
+        printf("Conversion complete. Output: %s\n", output_path);
+#endif
+
         return 0;
     }
 
